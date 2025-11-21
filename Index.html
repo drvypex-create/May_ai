@@ -1,1 +1,42 @@
-<h1>Hello, my AI will live here 😎</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My AI Chat</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f0f0f0; }
+    #chat { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; background: #fff; }
+    #userInput { width: 80%; padding: 5px; }
+    button { padding: 5px 10px; }
+    .message { margin: 5px 0; }
+    .user { color: blue; }
+    .ai { color: green; }
+  </style>
+</head>
+<body>
+  <h1>My AI Chat 😎</h1>
+  <div id="chat"></div>
+  <input type="text" id="userInput" placeholder="Say something...">
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      let input = document.getElementById("userInput").value;
+      if (!input) return;
+
+      // Show user message
+      let chat = document.getElementById("chat");
+      chat.innerHTML += `<div class="message user">You: ${input}</div>`;
+
+      // Simple AI response (for now)
+      let response = "AI: I heard you say '" + input + "' 😏";
+      chat.innerHTML += `<div class="message ai">${response}</div>`;
+
+      // Scroll to bottom
+      chat.scrollTop = chat.scrollHeight;
+
+      // Clear input
+      document.getElementById("userInput").value = "";
+    }
+  </script>
+</body>
+</html>
